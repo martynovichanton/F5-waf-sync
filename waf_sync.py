@@ -111,7 +111,7 @@ class Ssh():
         print(f"[+] Applying ASM policies on {self.ip}...")
         for policy in policies:
             print(f"[+] Applying {policy} on {self.ip}")
-            self.ssh_command(f"tmsh load asm policy file /var/tmp/{policy}.xml")
+            self.ssh_command(f"tmsh load asm policy {policy} overwrite file /var/tmp/{policy}.xml")
             self.ssh_command(f"tmsh modify asm policy {policy} active")
             self.ssh_command(f"tmsh publish asm policy {policy}")
 
